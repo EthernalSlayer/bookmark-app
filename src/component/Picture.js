@@ -51,15 +51,19 @@ function Picture() {
 	}
 
 	const nextPage = () => {
-		setLimit((prev) => prev + numOfElem);
-		setBegin((prev) => prev + numOfElem);
-		setActualPage((prev) => prev + 1);
+		if (actualPage + 1 < numberOfPages) {
+			setLimit((prev) => prev + numOfElem);
+			setBegin((prev) => prev + numOfElem);
+			setActualPage((prev) => prev + 1);
+		}
 	};
 
 	const prevPage = () => {
-		setLimit((prev) => prev - numOfElem);
-		setBegin((prev) => prev - numOfElem);
-		setActualPage((prev) => prev - 1);
+		if (actualPage > 0) {
+			setLimit((prev) => prev - numOfElem);
+			setBegin((prev) => prev - numOfElem);
+			setActualPage((prev) => prev - 1);
+		}
 	};
 
 	const firstPage = () => {
